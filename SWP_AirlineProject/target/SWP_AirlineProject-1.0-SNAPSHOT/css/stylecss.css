@@ -1,0 +1,77 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Feb 16, 2023, 9:17:41 AM
+    Author     : The Lu
+*/
+h1{
+    color: rgba(230, 16, 16, 0.964);
+    background-color:rgb(235, 174, 157);
+    text-align:center;
+    margin-left: 450px;
+    padding: 10px;
+    width: 600px;
+    border: 1px;
+}
+
+.text{
+    color:white;
+    background-color: rgb(99, 161, 223);
+    width: 80px;
+    margin-left: 350px;
+    padding-left: 10px;
+    border: 1px ;
+}
+
+table, td, th{
+     border-bottom: 1px solid black; 
+    border-collapse:collapse;
+    text-align: left;
+}
+
+table{
+    width: 800px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(180, 177, 177);
+}
+
+.btn{
+   background-color:  rgb(16, 234, 12);
+   color: white;
+   padding: 10px; 
+   border: none; 
+   border-radius: 5px;
+}
+.authen-form{
+    border: 1px solid black;
+    margin: 30px 40% 0px 40% ;
+    width: 20%;  
+    
+}
+
+.authen-form_Container{
+    padding: 10px;   
+}
+
+.authen-form_group{
+    margin-bottom: 20px;
+    
+}
+
+ .authen-form_input{
+    width: 100%;
+} 
+
+.btn{
+    margin: 20px 0 50px 0;
+    cursor: pointer;
+}
+
+.authen-form_control{
+    display: flex;
+    justify-content: center;
+}

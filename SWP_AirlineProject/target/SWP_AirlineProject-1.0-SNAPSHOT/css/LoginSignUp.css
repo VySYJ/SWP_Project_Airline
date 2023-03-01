@@ -1,0 +1,68 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Feb 16, 2023, 9:32:32 AM
+    Author     : LeThiThuyVy_CE160174
+*/
+
+.card{
+     align-items: center;
+    margin: auto;
+    border: none;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.card-body{
+    border-radius: 10px;
+    border: solid #575DFB;
+}
+
+.form-control{
+    background-color: #575DFB;
+    border: 2px solid #4CAF50;
+}
+
+.title{
+    font-weight: 700;
+    color: #575DFB;
+}
+.btnLogin{
+    text-align: center;
+}
+.btnClick{
+    background-color:#575DFB;
+    color: white;
+    border-radius: 0.5rem;
+    border: solid #575DFB;
+    height: 50px;
+    margin-top: 20px;
+    font-weight: 700;
+}
+input[type=text] {
+    margin: 8px 0;
+    border: 2px solid #575DFB;
+    font-size: small;
+  }
+input[type=password] {
+    margin: 8px 0;
+    border: 2px solid #575DFB;
+    font-size: small;
+  }
+hr{
+    background-color: rgb(255, 0, 0);
+}
+.footlogin{
+    text-align: center;
+}
+.signup{
+    font-size: 20px;
+    color: #575DFB;
+    font-weight: 700;
+}
+.btnSignup{
+    text-align: center;
+
+}
