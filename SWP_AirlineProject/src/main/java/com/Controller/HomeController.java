@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author LeThiThuyVy_CE160174
+ * @author hp
  */
 public class HomeController extends HttpServlet {
 
@@ -55,10 +55,7 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String path = request.getRequestURI();
-        if (path.startsWith("/")) {
-            request.getRequestDispatcher("HomePage.jsp").forward(request, response);
-        }
+        request.getRequestDispatcher("HomePage.jsp").forward(request, response);
     }
 
     /**

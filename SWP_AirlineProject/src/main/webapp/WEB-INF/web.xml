@@ -5,24 +5,18 @@
         <servlet-class>com.Controller.HomeController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SignInController</servlet-name>
-        <servlet-class>com.Controller.SignInController</servlet-class>
+        <servlet-name>FlightControllers</servlet-name>
+        <servlet-class>com.Controller.FlightControllers</servlet-class>
     </servlet>
-    
-        <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SignInController</servlet-name>
-        <url-pattern>/SignIn/*</url-pattern>
+        <servlet-name>FlightControllers</servlet-name>
+        <url-pattern>/Flight/*</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SignInController</servlet-name>
-        <url-pattern>/SignIn</url-pattern>
-    </servlet-mapping>
-    
-    <session-config>
+     <session-config>
         <session-timeout>
             30
         </session-timeout>
