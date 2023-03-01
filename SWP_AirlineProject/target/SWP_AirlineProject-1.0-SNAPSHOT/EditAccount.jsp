@@ -144,24 +144,40 @@
                 font-weight: 700;
                 text-align: center;
             }
+            .errormess{
+                color: red;
+            }
         </style>
     </head>
 
     <body>
         <%@include file="HeaderUser.jsp" %>
-        <%
-                 
+        <%   
+
         %>
         <div class="formbold-main-wrapper">
             <div class="formbold-form-wrapper">
+
                 <form class="" action="/SignIn/EditAccount" method="post">
                     <div class="title">
                         <h2 class="text-align">Chỉnh Sửa Tài Khoản</h2>
+                        <%String mess = (String) request.getAttribute("mess");
+                            if (mess != null) {
+                        %>
+                        <h4 class="errormess"><%=mess%></h4>
+                        <%
+                        } else {
+                        %>
+                        <h4 class="errormess"></h4>
+                        <%
+                            }
+                        %>
                         <input value="<%=ac.RoleID%>" type="hidden" name="txtroleid"/>
+                        <input value="<%=ac.Username%>" type="hidden" name="txtusername"/>
                     </div>
                     <div class="formbold-mb-5">
                         <label for="name" class="formbold-form-label"> Tên đăng nhập </label>
-                        <input value="<%=ac.Username%>" type="text" name="txtusername" id="name" class="formbold-form-input" />
+                        <input value="<%=ac.Username%>" type="text" name="usernameDis" id="name" class="formbold-form-input" disabled/>
                     </div>
                     <div class="formbold-mb-5">
                         <label for="phone" class="formbold-form-label"> Email </label>
@@ -170,8 +186,8 @@
                     </div>
                     <div class="formbold-mb-5">
                         <label for="email" class="formbold-form-label"> Mật khẩu </label>
-                        <input value="<%=password%>" type="text" name="txtpassword" id="password"
-                               class="formbold-form-input"/>
+                        <input value="<%=ac.Password%>" type="password" name="txtpassword" id="password"
+                               class="formbold-form-input" disabled/>
                     </div>
                     <div>
                         <button class="formbold-btn" type="submit" value="Edit" name="btnEditAc">Hoàn tất</button>

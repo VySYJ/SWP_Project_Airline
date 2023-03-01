@@ -330,7 +330,7 @@
         <%@include file="Header.jsp" %>
         
         <div class="Homepage">
-            <div class="Homepageimg">
+            <div class="Homepageimg" >
                 <h1>Welcome to our flight booking website <br>
                     We are here for you
                 </h1>

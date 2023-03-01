@@ -1,5 +1,5 @@
 com\DAO\AccountDAO.class
-com\DAO\DBConnection.class
 com\Controller\SignInController.class
 com\Controller\HomeController.class
 com\Models\Account.class
+com\DB\DBConnection.class

@@ -117,8 +117,12 @@ public class SignInController extends HttpServlet {
                 if (ac.Username.equals(username)) {
                     if (ac.Password.equals(passMd5)) {
                         Cookie ck = new Cookie("username", username);
+                        Cookie pass = new Cookie("pass", password);
                         ck.setMaxAge(60 * 60 * 24 * 3);
                         response.addCookie(ck);
+                        response.addCookie(pass);
+                        request.setAttribute("passs", password);
+
                         HttpSession session = request.getSession();
                         session.setAttribute("acc", ac);
 //                        response.sendRedirect(request.getContextPath() + "/HomePageUser.jsp");
@@ -169,30 +173,29 @@ public class SignInController extends HttpServlet {
             AccountDAO dao = new AccountDAO();
             String passMd5 = dao.getMd5(password);
 
-            boolean check = dao.checkUsername(username);
-            if (check == true) {
-                request.setAttribute("mess", "Tên đăng nhập đã tồn tại!");
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/EditAccount.jsp");
-                dispatcher.forward(request, response);
-            } else {
-                Account ac = new Account(username, password, email, roleID);
-                try {
-                    count = dao.update(ac);
-                    if (count > 0) {
-                        request.setAttribute("mess", "Chỉnh sửa thành công!");
-                        HttpSession session = request.getSession();
-                        session.setAttribute("acc", ac);
+            Account ac = new Account(username, passMd5, email, roleID);
+            try {
+                count = dao.update(ac);
+                if (count > 0) {
+
+                    Cookie pass = new Cookie("pass", password);
+                    response.addCookie(pass);
+                    request.setAttribute("passs", password);
+                    request.setAttribute("mess", "Chỉnh sửa thành công!");
+                    HttpSession session = request.getSession();
+                    session.setAttribute("acc", ac);
 //                        RequestDispatcher dispatcher = request.getRequestDispatcher("/SignIn.jsp");
 //                        dispatcher.forward(request, response);
-                        response.sendRedirect("/SignIn/HomeUser");
-                    } else {
-                        request.setAttribute("mess", "Chỉnh sửa không thành công!");
-                        RequestDispatcher dispatcher = request.getRequestDispatcher("/EditAccount.jsp");
-                        dispatcher.forward(request, response);
-                    }
-                } catch (SQLException ex) {
-                    Logger.getLogger(SignInController.class.getName()).log(Level.SEVERE, null, ex);
+//                    response.sendRedirect("/SignIn/HomeUser");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/EditAccount.jsp");
+                    dispatcher.forward(request, response);
+                } else {
+                    request.setAttribute("mess", "Chỉnh sửa không thành công!");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/EditAccount.jsp");
+                    dispatcher.forward(request, response);
                 }
+            } catch (SQLException ex) {
+                Logger.getLogger(SignInController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

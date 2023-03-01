@@ -146,12 +146,6 @@
         <%
             String NameHello = "";
             Account ac = (Account) session.getAttribute("acc");
-//            Cookie ck[] = request.getCookies();
-//            for (Cookie c : ck) {
-//                if (c.getName().equals("username")) {
-//                    NameHello = c.getValue();
-//                }
-//            }
             NameHello = ac.Username;
         %>
 
@@ -165,8 +159,10 @@
                                                                                                              alt="Logo"></a></label>
                 <ul class="listmenu">
                     <li><a href="<%= getServletContext().getContextPath()%>/SignIn/HomeUser">Trang chủ</a></li>
+                    <!-- 
                     <li><a href="">Vé quốc tế</a></li>
                     <li><a href="">Vé nội địa</a></li>
+                    -->
                     <li class="dropdown show">
                         <a class="dropdown-toggle nohover" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" 
                            aria-haspopup="true" aria-expanded="false">

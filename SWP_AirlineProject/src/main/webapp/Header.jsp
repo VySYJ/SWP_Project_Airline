@@ -154,8 +154,9 @@
                                                                                                alt="Logo"></a></label>
                 <ul class="listmenu">
                     <li><a href="<%= getServletContext().getContextPath()%>/">Trang chủ</a></li>
-                    <li><a href="">Vé quốc tế</a></li>
+                    <!-- <li><a href="">Vé quốc tế</a></li>
                     <li><a href="">Vé nội địa</a></li>
+                    -->
                     <li><a class="txtlogin" href="<%= getServletContext().getContextPath()%>/SignIn">Đăng nhập</a></li>
                     <li><a class="active" href="<%= getServletContext().getContextPath()%>/SignIn/NewAccount">Đăng ký</a></li>
                 </ul>
