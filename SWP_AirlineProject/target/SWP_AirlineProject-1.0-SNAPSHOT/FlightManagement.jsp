@@ -8,7 +8,7 @@
 <%@page import="java.util.logging.Logger"%>
 <%@page import="java.util.logging.Level"%>
 <%@page import="java.sql.SQLException"%>
-<%@page import="com.Models.Airplane"%>
+<%@page import="com.models.Airplane"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.DAO.FlightDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -284,11 +284,7 @@
                 <i class="bx bx-menu" id="btn"></i>
             </div>
             <ul class="nav_list">
-                <li>
-                    <i class="bx bx-search"></i>
-                    <input type="text" placeholder="Tìm kiếm">
-                    <span class="tooltip">Search</span>
-                </li>
+              
                 <li>
                     <a href="#">
                         <i class=""></i>
@@ -318,13 +314,13 @@
                     <p> <a href="/Flight/Create" type="button"class="btn btn-success">Thêm Chuyến Bay</a></p>
                     <div class="search-box">
                         <div class="input-group">
-                            <input type="text" id="search" class="form-control" placeholder="Tìm Kiếm">
+                            <input type="text" id="search-input" class="form-control" placeholder="Tìm Kiếm">
                         </div>
                     </div>
                     </div>
                     <div class="container">
                         <div class="table-responsive">
-                            <table class="table ">
+                            <table id="my-table"class="table ">
                                 <thead>
                                     <tr>
                                         <th style="width: 3%;">MCB</th> 
@@ -388,14 +384,39 @@
                     <script>
                         let btn = document.querySelector("#btn");
                         let sidebar = document.querySelector(".sidebar");
-                        let searchBtn = document.querySelector(".bx-search");
 
                         btn.onclick = function () {
                             sidebar.classList.toggle("active");
-                        }
-                        searchBtn.onclick = function () {
-                            sidebar.classList.toggle("active");
-                        }
+                        };
+                        //search.js
+                        const searchInput = document.getElementById('search-input');
+                        const table = document.getElementById('my-table');
+                        const tableRows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+                        searchInput.addEventListener('keyup', function () {
+                            const query = this.value.toLowerCase();
+
+                            for (let i = 0; i < tableRows.length; i++) {
+                                const cells = tableRows[i].getElementsByTagName('th');
+                                let found = false;
+
+                                for (let j = 0; j < cells.length; j++) {
+                                    const cellText = cells[j].textContent.toLowerCase();
+
+                                    if (cellText.indexOf(query) > -1) {
+                                        found = true;
+                                        break;
+                                    }
+                                }
+
+                                if (found) {
+                                    tableRows[i].style.display = '';
+                                } else {
+                                    tableRows[i].style.display = 'none';
+                                }
+                            }
+                        });
+
                     </script>
                     </body>
 

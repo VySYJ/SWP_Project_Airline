@@ -1,4 +1,3 @@
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
@@ -70,10 +69,11 @@ public class FlightControllers extends HttpServlet {
             } else {
                 if (path.startsWith("/Flight/Edit/")) {
                     String[] s = path.split("/");
-                    String FlightScheduleID = s[s.length - 1];
+                    String Flight_ScheduleID = s[s.length - 1];
                     FlightDAO dao = new FlightDAO();
-                    Flight kh = dao.getFlight(FlightScheduleID);
-                    if (FlightScheduleID== null) {
+                    Flight kh = dao.getFlight(Flight_ScheduleID);
+
+                    if (Flight_ScheduleID== null) {
                         response.sendRedirect("/Flight");
                     } else {
                         HttpSession session = request.getSession();
@@ -83,9 +83,9 @@ public class FlightControllers extends HttpServlet {
                 } else {
                     if (path.startsWith("/Flight/Delete")) {
                         String[] s = path.split("/");
-                        String FlightScheduleID = s[s.length - 1];
+                        String Flight_ScheduleID = s[s.length - 1];
                         FlightDAO dao = new FlightDAO();
-                        dao.delete(FlightScheduleID);
+                        dao.delete(Flight_ScheduleID);
                         response.sendRedirect("/Flight");
                     }
                 }
@@ -105,17 +105,14 @@ public class FlightControllers extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if (request.getParameter("btnInsert") != null) {
-            String FlightScheduleID = request.getParameter("textIDFlight");
+            String Flight_ScheduleID = request.getParameter("textIDFlight");
             String Flight_date = request.getParameter("dteG");
             String Arrival_date = request.getParameter("dteT");
             String Departure_time = request.getParameter("texttimego");
             String Arrive_time = request.getParameter("texttimeto");
-            String From = request.getParameter("textFrom");
-            String To = request.getParameter("textTo");
-            String Departure_airport = request.getParameter("textSbG");
-            String Arrival_airport = request.getParameter("textSbT");
+            String RouteID = request.getParameter("textFrom");
             String AirplaneID = request.getParameter("txtIDAirplane");
-            Flight su = new Flight(FlightScheduleID, Date.valueOf(Flight_date), Date.valueOf(Arrival_date ),Departure_time, Arrive_time, From, To,  Departure_airport, Arrival_airport, AirplaneID);
+            Flight su = new Flight(Flight_ScheduleID, Date.valueOf(Flight_date), Date.valueOf(Arrival_date ),Departure_time, Arrive_time,RouteID,AirplaneID);
             FlightDAO dao = new FlightDAO();
             int count = dao.addNew(su);
             if (count > 0) {
@@ -131,14 +128,11 @@ public class FlightControllers extends HttpServlet {
             String Arrival_date = request.getParameter("dteT");
             String Departure_time = request.getParameter("texttimego");
             String Arrive_time = request.getParameter("texttimeto");
-            String From = request.getParameter("textFrom");
-            String To = request.getParameter("textTo");
-            String Departure_airport = request.getParameter("textSbG");
-            String Arrival_airport = request.getParameter("textSbT");
+            String RouteID = request.getParameter("textFrom");
             String AirplaneID = request.getParameter("txtIDAirplane");
 
             FlightDAO dao = new FlightDAO();
-            Flight st = new Flight(FlightScheduleID, Date.valueOf(Flight_date), Date.valueOf(Arrival_date ),Departure_time, Arrive_time, From, To,  Departure_airport, Arrival_airport, AirplaneID);
+            Flight st = new Flight(FlightScheduleID, Date.valueOf(Flight_date), Date.valueOf(Arrival_date ),Departure_time, Arrive_time,RouteID, AirplaneID);
             dao.update(st);
 
             response.sendRedirect("/Flight");
