@@ -13,6 +13,14 @@
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AccountManagementController</servlet-name>
+        <servlet-class>com.Controller.AccountManagementController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AccountManagementController</servlet-name>
+        <url-pattern>/Account/*</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SignInController</servlet-name>
         <url-pattern>/SignIn/*</url-pattern>

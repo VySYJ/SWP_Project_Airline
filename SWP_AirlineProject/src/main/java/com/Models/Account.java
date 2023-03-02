@@ -4,12 +4,15 @@
  */
 package com.Models;
 
+
+
 /**
  *
  * @author LeThiThuyVy_CE160174
  */
 public class Account {
 
+   
     public String Username;
     public String Password;
     public String Email;
@@ -56,5 +59,6 @@ public class Account {
     public void setRoleID(int RoleID) {
         this.RoleID = RoleID;
     }
+
     
 }

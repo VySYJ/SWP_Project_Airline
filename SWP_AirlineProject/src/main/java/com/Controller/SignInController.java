@@ -176,22 +176,18 @@ public class SignInController extends HttpServlet {
                 dispatcher.forward(request, response);
             } else {
                 Account ac = new Account(username, password, email, roleID);
-                try {
-                    count = dao.update(ac);
-                    if (count > 0) {
-                        request.setAttribute("mess", "Chỉnh sửa thành công!");
-                        HttpSession session = request.getSession();
-                        session.setAttribute("acc", ac);
+                count = dao.update(ac);
+                if (count > 0) {
+                    request.setAttribute("mess", "Chỉnh sửa thành công!");
+                    HttpSession session = request.getSession();
+                    session.setAttribute("acc", ac);
 //                        RequestDispatcher dispatcher = request.getRequestDispatcher("/SignIn.jsp");
 //                        dispatcher.forward(request, response);
-                        response.sendRedirect("/SignIn/HomeUser");
-                    } else {
-                        request.setAttribute("mess", "Chỉnh sửa không thành công!");
-                        RequestDispatcher dispatcher = request.getRequestDispatcher("/EditAccount.jsp");
-                        dispatcher.forward(request, response);
-                    }
-                } catch (SQLException ex) {
-                    Logger.getLogger(SignInController.class.getName()).log(Level.SEVERE, null, ex);
+response.sendRedirect("/SignIn/HomeUser");
+                } else {
+                    request.setAttribute("mess", "Chỉnh sửa không thành công!");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/EditAccount.jsp");
+                    dispatcher.forward(request, response);
                 }
             }
         }
