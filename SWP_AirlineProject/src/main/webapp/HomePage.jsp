@@ -35,7 +35,7 @@
                 background-image: url('img/headerFlight.png');
                 background-repeat: no-repeat;
                 background-size: cover;
-                margin-top: 50px;
+                margin-top: 100px;
             }
 
             .Homepageimg h1 {
