@@ -7,7 +7,7 @@
 <%@page import="java.util.logging.Logger"%>
 <%@page import="java.util.logging.Level"%>
 <%@page import="java.sql.SQLException"%>
-<%@page import="com.models.Passenger"%>
+<%@page import="com.Models.Passenger"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.DAO.PassengerDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
